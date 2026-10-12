@@ -1,0 +1,23 @@
+{
+  "executed_code_cells": 26,
+  "observation_cells": 26,
+  "error_outputs": 0,
+  "local_tests": "3 passed",
+  "cloud_workflow": "All 3 jobs passed and the model was committed to main",
+  "public_deployment": "Verified with a live prediction on 2026-10-12",
+  "links": {
+    "github_url": "https://github.com/pramod-collab/tourism-purchase-prediction",
+    "workflow_url": "https://github.com/pramod-collab/tourism-purchase-prediction/actions/runs/38189076630",
+    "streamlit_url": "https://pramod-tourism-prediction.streamlit.app/"
+  },
+  "selected_model": "Random Forest",
+  "test_metrics": {
+    "accuracy": 0.8321256038647343,
+    "precision": 0.5478927203065134,
+    "recall": 0.8719512195121951,
+    "f1": 0.6729411764705883,
+    "f2": 0.7797164667393675,
+    "roc_auc": 0.9180089259476931,
+    "average_precision": 0.7389592959002971
+  }
+}
