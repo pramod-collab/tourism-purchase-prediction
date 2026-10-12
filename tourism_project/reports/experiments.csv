@@ -6,11 +6,11 @@ Random Forest,"{""model__class_weight"": ""balanced"", ""model__max_depth"": 10,
 Random Forest,"{""model__class_weight"": null, ""model__max_depth"": null, ""model__min_samples_leaf"": 3, ""model__n_estimators"": 150}",0.6651098984363991,0.02287083907155354,0.954974096324129
 Random Forest,"{""model__class_weight"": ""balanced"", ""model__max_depth"": null, ""model__min_samples_leaf"": 3, ""model__n_estimators"": 150}",0.6586289875260176,0.020347332501868546,0.9594639474383037
 Random Forest,"{""model__class_weight"": null, ""model__max_depth"": 10, ""model__min_samples_leaf"": 3, ""model__n_estimators"": 150}",0.6562456010735475,0.025729953206961927,0.9166381147389545
-Gradient Boosting,"{""model__learning_rate"": 0.1, ""model__max_depth"": 3, ""model__n_estimators"": 200}",0.6541234021238166,0.024881599978926812,0.8735390260746202
+Gradient Boosting,"{""model__learning_rate"": 0.1, ""model__max_depth"": 3, ""model__n_estimators"": 200}",0.6540786284692749,0.024977854167754922,0.8735390260746202
 Random Forest,"{""model__class_weight"": ""balanced"", ""model__max_depth"": 10, ""model__min_samples_leaf"": 3, ""model__n_estimators"": 150}",0.6405988576630955,0.024978910672638816,0.9256476834197063
-Gradient Boosting,"{""model__learning_rate"": 0.05, ""model__max_depth"": 3, ""model__n_estimators"": 200}",0.6321788244583394,0.017437971214948847,0.7819756486607714
+Gradient Boosting,"{""model__learning_rate"": 0.05, ""model__max_depth"": 3, ""model__n_estimators"": 200}",0.6322632933329125,0.017546555290363034,0.7819756486607714
 Gradient Boosting,"{""model__learning_rate"": 0.1, ""model__max_depth"": 3, ""model__n_estimators"": 100}",0.6315651833351333,0.017549695687167834,0.7881829121672275
-Gradient Boosting,"{""model__learning_rate"": 0.05, ""model__max_depth"": 3, ""model__n_estimators"": 100}",0.617673380564507,0.02346667053920734,0.7148848712658046
+Gradient Boosting,"{""model__learning_rate"": 0.05, ""model__max_depth"": 3, ""model__n_estimators"": 100}",0.6177367662156668,0.023551198339083118,0.7148848712658046
 Gradient Boosting,"{""model__learning_rate"": 0.1, ""model__max_depth"": 2, ""model__n_estimators"": 200}",0.6058287034614481,0.017899953660850156,0.7240863284566702
 Gradient Boosting,"{""model__learning_rate"": 0.1, ""model__max_depth"": 2, ""model__n_estimators"": 100}",0.5939102396832175,0.019125287772308548,0.6677139787298438
 Gradient Boosting,"{""model__learning_rate"": 0.05, ""model__max_depth"": 2, ""model__n_estimators"": 200}",0.5930538586703112,0.017941155383234753,0.6649198318829377

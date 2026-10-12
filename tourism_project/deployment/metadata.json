@@ -71,8 +71,8 @@
   },
   "training_rows": 3300,
   "test_rows": 828,
-  "python": "3.13.9",
+  "python": "3.13.16",
   "sklearn": "1.7.2",
   "data_sha256": "3f891d5fbaa3a38a4e74d4cc08be7ce6261f9c193c71535508deec9617dca4da",
-  "mlflow_parent_run_id": "a3204b6b887346e39efc480402267691"
+  "mlflow_parent_run_id": "153254260dec4924ad493f1fd4b79782"
 }
