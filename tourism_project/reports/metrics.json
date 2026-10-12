@@ -1,0 +1,78 @@
+{
+  "model_family": "Random Forest",
+  "threshold": 0.2,
+  "features": [
+    "Age",
+    "NumberOfPersonVisiting",
+    "PreferredPropertyStar",
+    "NumberOfTrips",
+    "Passport",
+    "OwnCar",
+    "NumberOfChildrenVisiting",
+    "MonthlyIncome",
+    "CityTier",
+    "Occupation",
+    "Gender",
+    "MaritalStatus",
+    "Designation"
+  ],
+  "best_parameters": {
+    "model__class_weight": null,
+    "model__max_depth": null,
+    "model__min_samples_leaf": 1,
+    "model__n_estimators": 150
+  },
+  "best_cv_average_precision": 0.7108494626463289,
+  "test_metrics": {
+    "accuracy": 0.8321256038647343,
+    "precision": 0.5478927203065134,
+    "recall": 0.8719512195121951,
+    "f1": 0.6729411764705883,
+    "f2": 0.7797164667393675,
+    "roc_auc": 0.9180089259476931,
+    "average_precision": 0.7389592959002971
+  },
+  "test_metrics_at_0_5": {
+    "accuracy": 0.8623188405797102,
+    "precision": 0.7717391304347826,
+    "recall": 0.4329268292682927,
+    "f1": 0.5546875,
+    "f2": 0.47459893048128343,
+    "roc_auc": 0.9180089259476931,
+    "average_precision": 0.7389592959002971
+  },
+  "baseline_metrics": {
+    "accuracy": 0.8019323671497585,
+    "precision": 0.0,
+    "recall": 0.0,
+    "f1": 0.0,
+    "f2": 0.0,
+    "roc_auc": 0.5,
+    "average_precision": 0.19806763285024154
+  },
+  "confusion_matrix": [
+    [
+      546,
+      118
+    ],
+    [
+      21,
+      143
+    ]
+  ],
+  "train_metrics": {
+    "accuracy": 0.9854545454545455,
+    "precision": 0.9295154185022027,
+    "recall": 1.0,
+    "f1": 0.9634703196347032,
+    "f2": 0.9850606909430439,
+    "roc_auc": 1.0,
+    "average_precision": 1.0
+  },
+  "training_rows": 3300,
+  "test_rows": 828,
+  "python": "3.13.9",
+  "sklearn": "1.7.2",
+  "data_sha256": "3f891d5fbaa3a38a4e74d4cc08be7ce6261f9c193c71535508deec9617dca4da",
+  "mlflow_parent_run_id": "a3204b6b887346e39efc480402267691"
+}

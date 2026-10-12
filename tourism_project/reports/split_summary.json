@@ -1,0 +1,24 @@
+{
+  "train_rows": 3300,
+  "test_rows": 828,
+  "features": [
+    "Age",
+    "NumberOfPersonVisiting",
+    "PreferredPropertyStar",
+    "NumberOfTrips",
+    "Passport",
+    "OwnCar",
+    "NumberOfChildrenVisiting",
+    "MonthlyIncome",
+    "CityTier",
+    "Occupation",
+    "Gender",
+    "MaritalStatus",
+    "Designation"
+  ],
+  "train_buyer_rate": 0.1918181818181818,
+  "test_buyer_rate": 0.19806763285024154,
+  "repeated_profile_rows": 194,
+  "shared_profiles": 0,
+  "random_state": 42
+}
