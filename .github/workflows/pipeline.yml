@@ -1,0 +1,105 @@
+name: Tourism Project Pipeline
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'tourism_project/**'
+      - 'tests/**'
+      - '.github/workflows/pipeline.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+concurrency:
+  group: tourism-main
+  cancel-in-progress: false
+env:
+  PYTHON_VERSION: '3.13'
+
+jobs:
+  register-dataset:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - name: Install dependencies
+        run: pip install -r tourism_project/requirements.txt
+      - name: Register data
+        run: python -m tourism_project.model_building.data_register
+      - uses: actions/upload-artifact@v4
+        with:
+          name: registered-data
+          path: tourism_project/data/tourism.csv
+          if-no-files-found: error
+          retention-days: 7
+
+  data-prep:
+    needs: register-dataset
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: pip install -r tourism_project/requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: registered-data
+          path: tourism_project/data
+      - name: Prepare train and test sets
+        run: python -m tourism_project.model_building.prep
+      - uses: actions/upload-artifact@v4
+        with:
+          name: data-splits
+          path: tourism_project/splits/*.csv
+          if-no-files-found: error
+          retention-days: 7
+
+  model-training:
+    needs: data-prep
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+      - name: Check source revision
+        run: test "$(git rev-parse HEAD)" = "$GITHUB_SHA"
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHON_VERSION }}
+      - run: pip install -r tourism_project/requirements.txt
+      - uses: actions/download-artifact@v4
+        with:
+          name: data-splits
+          path: tourism_project/splits
+      - name: Tune and track models
+        run: python -m tourism_project.model_building.train
+      - name: Test saved model and app
+        run: python -m pytest tests -q
+      - name: Save experiment records
+        uses: actions/upload-artifact@v4
+        with:
+          name: model-and-experiments
+          path: |
+            tourism_project/reports/
+            tourism_project/deployment/model.joblib
+            tourism_project/deployment/metadata.json
+            mlruns/
+          retention-days: 14
+      - name: Commit trained model to main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add tourism_project/deployment/model.joblib tourism_project/deployment/metadata.json tourism_project/reports/
+          if git diff --cached --quiet; then
+            echo "No model changes to commit."
+          else
+            git commit -m "Update tourism model and reports [skip ci]"
+            git push origin HEAD:main
+          fi
